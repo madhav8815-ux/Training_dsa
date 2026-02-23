@@ -27,23 +27,20 @@ class Solution:
 
         # merge lists
         start = head
-        end = head
-
         head = head.next    
         start.next = None
+        end = start
 
         while head and temp:
-            tm = temp
+            end.next = temp
             temp = temp.next
-            tm.next = None
-            end.next = tm
-            end = tm
+            end = end.next
+            end.next = None
 
-            t = head
+            end.next = head
             head = head.next
-            t.next = None
-            end.next = t
-            end = t
+            end = end.next
+            end.next = None
 
         if temp:
             end.next = temp
